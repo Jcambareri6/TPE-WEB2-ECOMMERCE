@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2023 a las 17:24:37
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 22-09-2023 a las 21:05:37
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,8 +33,7 @@ CREATE TABLE `compras` (
   `ProductoID` int(11) NOT NULL,
   `Cantidad` int(11) NOT NULL,
   `FechaCompra` int(11) NOT NULL
-  FOREIGN KEY (ProductoID) REFERENCES productos(ProductoID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +44,7 @@ CREATE TABLE `compras` (
 CREATE TABLE `marcas` (
   `MarcaID` int(11) NOT NULL,
   `Nombre` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -59,11 +58,9 @@ CREATE TABLE `productos` (
   `Descripcion` text NOT NULL,
   `Precio` double NOT NULL,
   `Stock` int(11) NOT NULL,
-  `marcaID` int(11) NOT NULL
-  `Condicion` varchar(20) NOT NULL,
-  FOREIGN KEY (marcaID) REFERENCES marcas(MarcaID)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `marcaID` int(11) NOT NULL,
+  `Condicion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -73,7 +70,8 @@ CREATE TABLE `productos` (
 -- Indices de la tabla `compras`
 --
 ALTER TABLE `compras`
-  ADD PRIMARY KEY (`CompraID`);
+  ADD PRIMARY KEY (`CompraID`),
+  ADD KEY `FK_ProductoID` (`ProductoID`);
 
 --
 -- Indices de la tabla `marcas`
@@ -85,7 +83,8 @@ ALTER TABLE `marcas`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`ProductoID`);
+  ADD PRIMARY KEY (`ProductoID`),
+  ADD KEY `FK_MarcaID` (`marcaID`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -108,6 +107,22 @@ ALTER TABLE `marcas`
 --
 ALTER TABLE `productos`
   MODIFY `ProductoID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `FK_ProductoID` FOREIGN KEY (`ProductoID`) REFERENCES `productos` (`ProductoID`);
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `FK_MarcaID` FOREIGN KEY (`marcaID`) REFERENCES `marcas` (`MarcaID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
