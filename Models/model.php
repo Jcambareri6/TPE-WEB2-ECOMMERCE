@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php'
+require_once 'config.php';
 class DB{
     private $host;
     private $db;
@@ -9,10 +9,10 @@ class DB{
     private $charset;
 
     public function __construct(){
-        $this->host     = 'localhost';
-        $this->db       = 'tpe_web2';
-        $this->user     = 'root';
-        $this->charset  = 'utf8mb4';
+        $this->host     = DB_HOST;
+        $this->db       = DB_NAME;
+        $this->user     = DB_USER;
+        $this->charset  = DB_Charset;
     }
 
     function connect(){
