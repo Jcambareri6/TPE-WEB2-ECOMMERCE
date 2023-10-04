@@ -122,7 +122,7 @@ ALTER TABLE `compras`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `FK_MarcaID` FOREIGN KEY (`marcaID`) REFERENCES `marcas` (`MarcaID`);
+  ADD CONSTRºAINT `FK_MarcaID` FOREIGN KEY (`marcaID`) REFERENCES `marcas` (`MarcaID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
