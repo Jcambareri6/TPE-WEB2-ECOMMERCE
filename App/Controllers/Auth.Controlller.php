@@ -1,7 +1,8 @@
 <?php
-require_once './App/Controllers/helpers/authHelper.php';
-require_once './App/Views/auth.view.php';
+ require_once './App/Controllers/helpers/authHelper.php';
+ require_once './App/Views/auth.view.php';
 require_once './App/Models/Auth.model.php';
+
 class AuthController {
     private $view;
     private $model;
@@ -16,22 +17,23 @@ class AuthController {
     }
 
     public function auth() {
-        $email = $_POST['email'];
+        $username = $_POST['username'];
         $password = $_POST['password'];
 
-        if (empty($email) || empty($password)) {
+        if (empty($username) || empty($password)) {
             $this->view->showLogin('Faltan completar datos');
             return;
         }
 
         // busco el usuario
-        $user = $this->model->getByEmail($email);
+        $user = $this->model->getByEmail($username);
         if ($user && password_verify($password, $user->password)) {
             // ACA LO AUTENTIQUE
             
             AuthHelper::login($user);
+            echo 'logueado';
             
-            header('Location: ' . BASE_URL);
+            //header('Location: ' . BASE_URL);
         } else {
             $this->view->showLogin('Usuario inválido');
         }
