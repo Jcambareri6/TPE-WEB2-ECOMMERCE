@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require'./model.php';
+require_once './model.php';
 
 class ModelCategorias extends DB{
     private $db;
