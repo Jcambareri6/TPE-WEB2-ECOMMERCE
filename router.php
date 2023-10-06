@@ -18,7 +18,6 @@ switch ($params[0]){
         $authController= new AuthController;
         $authController->auth();
      break;
-    
 }
 
 
