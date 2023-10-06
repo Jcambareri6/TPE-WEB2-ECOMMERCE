@@ -11,7 +11,7 @@ $params= explode('/',$action);
 switch ($params[0]){
     case 'login':
         $authController= new AuthController;
-        $authController->view->showLogin();
+        $authController->showLogin();
         break;
     
 }
