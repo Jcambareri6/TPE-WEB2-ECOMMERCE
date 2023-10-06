@@ -1,5 +1,5 @@
 <?php 
-require './Models/model.php';
+require_once './Models/model.php';
 class UserModel extends DB {
     private $db;
 
