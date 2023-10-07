@@ -1,5 +1,5 @@
 <?php 
-require_once'./App/Models/model.php';
+require_once'./app/models/model.php';
 class UserModel extends DB {
 
     public function getByEmail($email) {

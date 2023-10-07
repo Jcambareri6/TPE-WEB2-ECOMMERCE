@@ -1,7 +1,7 @@
 <?php
- require_once './App/Controllers/helpers/authHelper.php';
- require_once './App/Views/auth.view.php';
-require_once './App/Models/Auth.model.php';
+ require_once './app/controllers/helpers/auth.helper.php';
+ require_once './app/views/auth.view.php';
+require_once './app/models/auth.model.php';
 
 class AuthController {
     private $view;

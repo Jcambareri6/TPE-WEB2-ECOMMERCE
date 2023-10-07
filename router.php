@@ -1,6 +1,6 @@
 <?php
-include_once './App/Models/model.php';
-include_once'./App/Controllers/Auth.Controlller.php';
+include_once './app/models/model.php';
+include_once './app/controllers/auth.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 $action='showProductos';
