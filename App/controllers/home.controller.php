@@ -6,6 +6,7 @@ class HomeController{
     private $view;
 
     function __construct(){
+        
         $this->view = new HomeView();
     }
 

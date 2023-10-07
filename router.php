@@ -2,6 +2,7 @@
 include_once './app/models/model.php';
 include_once './app/controllers/auth.controller.php';
 include_once './app/controllers/home.controller.php';
+include_once './App/controllers/administrador.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 $action='showProductos';
@@ -22,6 +23,12 @@ switch ($params[0]){
    case 'home':
       $controller = new HomeController;
       $controller-> showHome();
+      break;
+      case 'dashboardAdmin':
+         $controller= new AdministradorController();
+         $controller-> ShowDashboard();
+         break;
+
 }
 
 

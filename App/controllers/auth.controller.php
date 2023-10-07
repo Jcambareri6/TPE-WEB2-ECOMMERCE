@@ -31,9 +31,9 @@ class AuthController {
             // ACA LO AUTENTIQUE
             
             AuthHelper::login($user);
-            echo 'logueado';
             
-            //header('Location: ' . BASE_URL);
+            
+            header('Location: ' . BASE_URL . '/dashboardAdmin');
         } else {
             $this->view->showLogin('Usuario inválido');
         }
