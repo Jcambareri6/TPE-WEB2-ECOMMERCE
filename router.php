@@ -1,23 +1,27 @@
 <?php
 include_once './app/models/model.php';
 include_once './app/controllers/auth.controller.php';
+include_once './app/controllers/home.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 $action='showProductos';
 
  if (isset($_GET['action'])) {
-    $action = $_GET['action'];
+   $action = $_GET['action'];
 }
 $params= explode('/',$action);
 switch ($params[0]){
-    case 'login':
-       $authController= new AuthController;
-       $authController->showLogin();
-    break;
-    case 'auth':
-        $authController= new AuthController;
-        $authController->auth();
-     break;
+   case 'login':
+      $controller = new AuthController;
+      $controller->showLogin();
+      break;
+   case 'auth':
+      $controller = new AuthController;
+      $controller->auth();
+      break;
+   case 'home':
+      $controller = new HomeController;
+      $controller-> showHome();
 }
 
 
