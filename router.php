@@ -28,6 +28,17 @@ switch ($params[0]){
          $controller= new AdministradorController();
          $controller-> ShowDashboard();
          break;
+      case 'delete':
+          $controller= new AdministradorController;
+          var_dump($params[1]);
+          $controller->DeleteItem($params[1]);
+         break;
+       case 'logout':
+            $controller = new AuthController();
+            $controller->logout();
+      break;
+    
+
 
 }
 

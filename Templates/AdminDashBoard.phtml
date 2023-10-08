@@ -4,21 +4,40 @@
             <button class="btn btn-success" href="">agregar Producto <i class="fa-solid fa-plus" style="color: #000000;"></i></button>
     </div>
     <table class="table">
+
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre del Producto</th>
+                <th>Descripcion</th>
+                <th>Stock</th>
                 <th>Precio</th>
+                <th>Condicion</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <?php
-            
-            ?>
+        <?php foreach ($Items as $item): ?>
+            <tr>
+                <td><?php echo $item->ProductoID; ?></td>
+                <td><?php echo $item->Nombre; ?></td>
+                <td><?php echo $item->Descripcion; ?></td>
+                <td><?php echo $item->Stock; ?></td>
+                <td><?php echo $item->Precio; ?></td>
+                <td><?php echo $item->Condicion; ?></td>
+                <td>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn  btn-outline-danger me-md-2" type="button" href="delete/<?php echo $item->ProductoID ?>"><i class="fa-solid fa-trash"></i></a>
+                <a class="btn btn-outline-warning" type="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div> 
+                </td>
+                
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 
  
-
+<div>
 <?php require 'footer.phtml' ?>
+</div>

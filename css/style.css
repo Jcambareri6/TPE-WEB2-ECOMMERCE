@@ -1,5 +1,11 @@
+
 .celulares {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 25px;
 }
+  /* Estilo personalizado para el cuerpo de la página */
+ 
+
+/* Estilo personalizado para el footer */
+

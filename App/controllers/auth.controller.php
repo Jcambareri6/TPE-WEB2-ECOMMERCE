@@ -41,6 +41,6 @@ class AuthController {
 
     public function logout() {
         AuthHelper::logout();
-        header('Location: ' . BASE_URL);    
+        header('Location: ' . BASE_URL.'/home');    
     }
 }

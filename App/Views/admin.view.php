@@ -1,6 +1,7 @@
 <?php
 class adminView{
-    function ShowDashboard(){
+    function ShowDashboard($Items){
+
         require './Templates/AdminDashBoard.phtml';
     }
 }
