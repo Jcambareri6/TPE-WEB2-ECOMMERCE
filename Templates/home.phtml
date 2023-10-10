@@ -2,20 +2,18 @@
 
 
 <section class="celulares">
+    <?php foreach($products as $product):?>
+       
     <div class="card">
+
         <div class="card-body">
-            <h5 class="card-title" >Samsung s23</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ad in odio ratione? Assumenda, iusto? Quasi, provident accusantium? Repudiandae, tempora cupiditate modi atque animi quasi ipsam rem quisquam aut labore!</p>
+             <h5 class="card-title" > <?=$product->Nombre  ?></h5>
+            <h5 class="card-title" > <?=$product->NombreProducto  ?></h5>
+            <p class="card-text"><?=$product->Descripcion ?></p>
         </div>
-        <div class="card-body">
-            <h5 class="card-title" >Samsung s22</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ad in odio ratione? Assumenda, iusto? Quasi, provident accusantium? Repudiandae, tempora cupiditate modi atque animi quasi ipsam rem quisquam aut labore!</p>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" >Iphone 11</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ad in odio ratione? Assumenda, iusto? Quasi, provident accusantium? Repudiandae, tempora cupiditate modi atque animi quasi ipsam rem quisquam aut labore!</p>
-        </div>
+
     </div>
+    <?php endforeach ?>
 </section>
 
 
