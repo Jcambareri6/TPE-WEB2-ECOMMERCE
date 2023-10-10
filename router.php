@@ -28,6 +28,15 @@ switch ($params[0]){
          $controller= new AdministradorController();
          $controller-> ShowDashboard();
          break;
+         case 'ViewFormadd':
+            $controller= new AdministradorController();
+            $controller-> showFormAdd();
+            break;
+         case 'add':
+            $controller= new AdministradorController();
+            $controller-> AddProduct();
+            break;
+
       case 'delete':
           $controller= new AdministradorController;
           var_dump($params[1]);
