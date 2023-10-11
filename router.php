@@ -36,12 +36,11 @@ switch ($params[0]) {
       $controller = new AdministradorController();
       $controller->AddProduct();
       break;
-      
-   case 'productosMarca': 
-      echo "hola";
+
+      case 'productosMarca': 
       $controller = new HomeController();
       $controller->showProductosPorMarca($params[1]);
-   break;
+      break;
     
 
 

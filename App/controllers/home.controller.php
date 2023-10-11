@@ -27,7 +27,7 @@ class HomeController{
     public function showProductosPorMarca($id){
         $productsMarca = $this->model->getItemsPorMarca($id);
         $marcas = $this->modelMarcas->getMarcas();
-       // $this->view->showHome($productsMarca, $marcas);
-        echo ('Entre');
+        $this->view->showHome($productsMarca, $marcas);
+        
     }
 }
