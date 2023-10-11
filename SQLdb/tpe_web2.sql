@@ -54,11 +54,11 @@ CREATE TABLE `marcas` (
 
 CREATE TABLE `productos` (
   `ProductoID` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
+  `NombreProducto` varchar(100) NOT NULL,
   `Descripcion` text NOT NULL,
   `Precio` double NOT NULL,
   `Stock` int(11) NOT NULL,
-  `marcaID` int(11) NOT NULL,
+  `IDmarca` int(11) NOT NULL,
   `Condicion` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
