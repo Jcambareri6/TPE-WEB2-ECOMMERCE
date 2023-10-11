@@ -26,9 +26,8 @@
             Productos
           </a>
           <ul class="dropdown-menu">
-            <?php var_dump($marcas) ?>
             <?php foreach ($marcas as $marca): ?>
-            <li><a class="dropdown-item" href="productosMarca/<?php $marca->marcaID ?>">    <?=$marca->Nombre ?></a></li>
+            <li><a class="dropdown-item" href="productosMarca/ <?php $marca->marcaID ?>">    <?=$marca->Nombre ?></a></li>
               <?php endforeach ?>
           </ul>
         </li>

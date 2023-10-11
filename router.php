@@ -36,8 +36,7 @@ switch ($params[0]) {
       $controller = new AdministradorController();
       $controller->AddProduct();
       break;
-<<<<<<< HEAD
-=======
+      
    case 'productosMarca': 
       echo "hola";
       $controller = new HomeController();
@@ -45,7 +44,6 @@ switch ($params[0]) {
    break;
     
 
->>>>>>> 16679cb84399f4be59c99c33ae22dee241b47b89
 
    case 'delete':
       $controller = new AdministradorController;
