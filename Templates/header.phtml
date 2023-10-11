@@ -22,13 +22,14 @@
           <a class="nav-link active" aria-current="page" href="home">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="marcas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">samsung</a></li>
-            <li><a class="dropdown-item" href="#">Iphone</a></li>
-            <li><a class="dropdown-item" href="#">Motorola</a></li>
+            <?php var_dump($marcas) ?>
+            <?php foreach ($marcas as $marca): ?>
+            <li><a class="dropdown-item" href="productosMarca/<?php $marca->marcaID ?>">    <?=$marca->Nombre ?></a></li>
+              <?php endforeach ?>
           </ul>
         </li>
         <?php if (!isset($_SESSION['USER_ID'])) : ?>
