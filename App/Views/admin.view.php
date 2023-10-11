@@ -10,4 +10,6 @@ class adminView{
     function ShowError($error){
         require './Templates/error.phtml';
     }
+
+    
 }

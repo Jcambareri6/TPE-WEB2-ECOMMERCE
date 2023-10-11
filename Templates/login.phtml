@@ -1,5 +1,11 @@
 <?php require './templates/header.phtml' ?>
 
+<?php $password = "1234";
+    $passwordEncriptado = password_hash ($password, PASSWORD_DEFAULT);
+    echo ("Clave encriptada $passwordEncriptado")
+
+?>
+
 <div class="mt-5 w-25 mx-auto">
     <form method="POST" action="auth">
         <?php if ($error) : ?>
