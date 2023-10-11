@@ -8,5 +8,12 @@ class homeModel extends DB{
     $items = $query->fetchAll(PDO::FETCH_OBJ);
     return $items;
    }
+
+   public function getItemsPorMarca($id){
+    $query = $this->connect()->prepare('SELECT * FROM productos WHERE marcaID = ?');
+    $query -> execute([$id]);
+    $items = $query->fetchAll(PDO::FETCH_OBJ);
+    return $items;
+   }
    
 }

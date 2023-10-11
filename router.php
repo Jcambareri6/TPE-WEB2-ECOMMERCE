@@ -37,6 +37,11 @@ switch ($params[0]){
             $controller = new AuthController();
             $controller->logout();
       break;
+   case 'productosMarca': 
+      echo "hola";
+      $controller = new HomeController();
+      $controller->showProductosPorMarca($params[1]);
+   break;
     
 
 
