@@ -34,7 +34,7 @@
                 <label for="marca">Marca:</label>
                 <select class="form-control" name='marcaID' id="marca">
                   <?php foreach ($marcas as $marca):?>
-                     <option value="Marca 1"><?= $marca->Nombre ?></option>
+                     <option value="<?php $marca->marcaID ?>"><?= $marca->Nombre ?></option>
 
                     <?php endforeach?>
                 </select>
