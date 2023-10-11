@@ -1,10 +1,11 @@
 <?php
 class adminView{
-    function ShowDashboard($Items){
+    function ShowDashboard($Items,$marcas){
 
         require './Templates/AdminDashBoard.phtml';
     }
-    function ShowFormAdd($error){
+
+    function ShowFormAdd($error,$marcas){
         require './Templates/formAdd.phtml';
     }
     function ShowError($error){
