@@ -1,20 +1,42 @@
 <?php require './templates/header.phtml' ?>
-
-
-<section class="celulares">
-    <?php foreach($products as $product):?>
-       
-    <div class="card">
-
-        <div class="card-body">
-             <h5 class="card-title" > <?=$product->Nombre  ?></h5>
-            <h5 class="card-title" > <?=$product->NombreProducto  ?></h5>
-            <p class="card-text"><?=$product->Descripcion ?></p>
+<section>
+<div class="presentacion">
+                <p class="bienvenida">Bienvenidos</p>
+                <h2>Somos <span> Lorem, ipsum dolor. </span> Lorem ipsum dolor, sit amet consectetur adipisicing.</h2>
+                <p class="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem optio eos, asperiores alias excepturi beatae earum at magni hic officia iure praesentium et quod magnam dolor reprehenderit quia facere cumque.</p>
+                <a href="#tienda" class="portfolio">  <i class="fa-regular fa-cart-shopping-fast"></i>
+                    ir a la tienda</a>
+            </div>
         </div>
-
-    </div>
-    <?php endforeach ?>
 </section>
+
+
+<section class="container text-center mt-2">
+    <div class="row">
+        <?php foreach ($products as $product) : ?>
+            <div class="col-md-4 mb-4">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $product->NombreProducto ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?= $product->Nombre ?></h6>
+                        <p class="card-text"><?= $product->Descripcion ?></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Precio: $<?= $product->Precio ?></li>
+                        <li class="list-group-item">Disponibilidad: <?= $product->Stock > 0 ? 'En Stock' : 'Agotado' ?></li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </div>
+</section>
+
+
+
+
 
 
 

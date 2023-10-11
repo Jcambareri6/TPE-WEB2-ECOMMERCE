@@ -4,10 +4,10 @@ class adminView{
 
         require './Templates/AdminDashBoard.phtml';
     }
-    function ShowFormAdd(){
+    function ShowFormAdd($error){
         require './Templates/formAdd.phtml';
     }
-    function ShowError(){
+    function ShowError($error){
         require './Templates/error.phtml';
     }
 }

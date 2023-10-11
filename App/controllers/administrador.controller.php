@@ -22,20 +22,23 @@ class AdministradorController{
         
     }
     public function showFormAdd(){
-        $this->View->showFormAdd();
+        $this->View->showFormAdd($error=null);
     }
     public function AddProduct(){
       
       
         if(empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
-        //     $ProductTittle= $_POST['tittle'];
-        //  $description= $_POST['description'];
-        //     $stock= $_POST['stock'];
-        //     $price= $_POST['price'];
-        //     $condicion= $_POST['condition'];
-        //      $marcaID=  $_POST['marcaID'];  
+            $this->View->showFormAdd("no se completaron los datos");
         }else{
-            $this->View->ShowError("falta completar los datos");
+            
+            $ProductTittle= $_POST['tittle'];
+            $description= $_POST['description'];
+              $stock= $_POST['stock'];
+             $price= $_POST['price'];
+            $condicion= $_POST['condition'];
+               $marcaID=  $_POST['marcaID']; 
+
+           
         }
 
 

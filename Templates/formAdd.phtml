@@ -1,12 +1,17 @@
 <?php include 'header.phtml'?>
 <div class="container">
-        <h2 class="p-2">Agregar Producto</h2>
-        <form action="add">
-            <div class="form-group p-2">
+        <h2 class="p-1">Agregar Producto</h2>
+        <form action="add" method="POST">
+            <?php if ($error) : ?>
+            <div class='alert alert-danger' role='alert'>
+                <?= $error ?>
+            </div> 
+        <?php endif ?>
+            <div class="form-group ">
                 <label for="nombre">Nombre del Producto:</label>
                 <input type="text" class="form-control"  name='tittle'id="nombre" placeholder="Ingrese el nombre del producto">
             </div>
-            <div class="form-group p-2">
+            <div class="form-group">
                 <label for="descripcion">Descripción:</label>
                 <textarea class="form-control" id="descripcion"  name='description' rows="3" placeholder="Ingrese la descripción del producto"></textarea>
             </div>
@@ -16,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="precio">Precio:</label>
-                <input type="number" class="form-control" id="precio"  name="Price" placeholder="Ingrese el precio del producto">
+                <input type="number" class="form-control" id="precio"  name="price" placeholder="Ingrese el precio del producto">
             </div>
             <div class="form-group">
                 <label for="condicion">Condición:</label>
@@ -33,7 +38,7 @@
                     <option value="Marca 3">Marca 3</option>
                 </select>
             </div>
-            <a  hre='' class="btn btn-primary mt-2">Agregar Producto</a>
+            <button  type="submit" class="btn btn-primary mt-2">Agregar Producto</button>
         </form>
     </div>
 <?php include 'footer.phtml'?>
