@@ -1,17 +1,8 @@
 <?php require './templates/header.phtml' ?>
-<section>
-<div class="presentacion">
-                <p class="bienvenida">Bienvenidos</p>
-                <h2>Somos <span> Lorem, ipsum dolor. </span> Lorem ipsum dolor, sit amet consectetur adipisicing.</h2>
-                <p class="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem optio eos, asperiores alias excepturi beatae earum at magni hic officia iure praesentium et quod magnam dolor reprehenderit quia facere cumque.</p>
-                <a href="#tienda" class="portfolio">  <i class="fa-regular fa-cart-shopping-fast"></i>
-                    ir a la tienda</a>
-            </div>
-        </div>
-</section>
+<?php require './templates/banner.phtml' ?>
 
 
-<section class="container text-center mt-2">
+<section id="Tienda" class="container text-center mt-2">
     <div class="row">
     
         <?php foreach ($products as $product) : ?>

@@ -8,23 +8,6 @@ html{
      scroll-behavior:smooth; 
 }
 
-
-header{
-    width: 100% ;
-}
-#inicio .contenido header .contenidoHeader{
-    max-width: 1100px;
-    
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items:center ;
-    padding: 10px 20px;
-}
-#inicio .contenido header .contenidoHeader h1{
-    text-align: center;
-    color: #ff5080;
-}
 .celulares {
     display: grid;
     grid-template-columns: 1fr 1fr;
