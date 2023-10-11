@@ -5,7 +5,7 @@ include_once './app/controllers/home.controller.php';
 include_once './App/controllers/administrador.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-$action = 'showProductos';
+$action = 'home';
 
 if (isset($_GET['action'])) {
    $action = $_GET['action'];
@@ -38,9 +38,10 @@ switch ($params[0]) {
       break;
 
       case 'productosMarca': 
-      echo "hola";
+    
       $controller = new HomeController();
       $controller->showProductosPorMarca($params[1]);
+      
       break;
     
 
