@@ -27,24 +27,23 @@ switch ($params[0]) {
    case 'dashboardAdmin':
       $controller = new AdministradorController();
       $controller->ShowDashboard();
-   break;
+      break;
+   case 'ViewFormadd':
+      $controller = new AdministradorController();
+      $controller->showFormAdd();
+      break;
+   case 'add':
+      $controller = new AdministradorController();
+      $controller->AddProduct();
+      break;
 
-   case 'ViewFormadd':
-      $controller = new AdministradorController();
-      $controller->showFormAdd();
+      case 'productosMarca': 
+      echo "hola";
+      $controller = new HomeController();
+      $controller->showProductosPorMarca($params[1]);
       break;
-   case 'add':
-      $controller = new AdministradorController();
-      $controller->AddProduct();
-      break;
-   case 'ViewFormadd':
-      $controller = new AdministradorController();
-      $controller->showFormAdd();
-      break;
-   case 'add':
-      $controller = new AdministradorController();
-      $controller->AddProduct();
-      break;
+    
+
 
    case 'delete':
       $controller = new AdministradorController;

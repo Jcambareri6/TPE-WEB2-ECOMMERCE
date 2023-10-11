@@ -23,13 +23,16 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Productoss
+            Productos
           </a>
           <ul class="dropdown-menu">
-
-            <li><a class="dropdown-item" href="#">samsung</a></li>
-            <li><a class="dropdown-item" href="#">Iphone</a></li>
-            <li><a class="dropdown-item" href="#">Motorosla</a></li>
+          
+          
+              <?php foreach ($marcas as $marca): ?>
+              <li><a class="dropdown-item" href="productosMarca/<?= $marca->MarcaID ?>">    <?=$marca->Nombre ?></a></li>
+              <?php endforeach ?>
+           
+          
           </ul>
         </li>
         <?php if (!isset($_SESSION['USER_ID'])) : ?>
