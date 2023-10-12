@@ -1,2 +1,32 @@
 <?php require 'header.phtml' ?>
 
+<div class="d-flex justify-content-end mb-3 ">
+            <a class="btn btn-success" href="#">Agregar Marca <i class="fa-solid fa-plus" style="color: #000000;"></i></a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de la marca</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($marcas as $marca): ?>
+        <tr>
+            <td><?php echo $marca->MarcaID; ?></td>
+            <td><?php echo $marca->Nombre; ?></td>
+            <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn  btn-outline-danger me-md-2 p-2" type="button" href=" deleteMarca/<?php echo $marca->MarcaID ?>"><i class="fa-solid fa-trash"></i></a>
+                <a class="btn btn-outline-warning" type="button"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div> 
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<div>
+    <?php require 'footer.phtml' ?>
+</div>

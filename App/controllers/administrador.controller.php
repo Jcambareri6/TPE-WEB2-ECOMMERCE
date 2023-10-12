@@ -29,6 +29,11 @@ class AdministradorController{
         
     }
 
+    public function DeleteMarca($id){
+        $this->modelMarcas->DeleteMarca($id);
+        header('Location: ' . BASE_URL . '/marcas');
+    }
+
     public function showFormAdd(){
         $this->View->showFormAdd($error=null,$this->getMarcas());
     }
@@ -53,6 +58,10 @@ class AdministradorController{
         }
 
 
+    }
+
+    public function ShowDashboardMarcas(){
+        $this->View->ShowDashboardMarcas($error=null, $this->getMarcas());
     }
     
 }

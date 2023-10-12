@@ -43,6 +43,15 @@ switch ($params[0]) {
       $controller->showProductosPorMarca($params[1]);
       
       break;
+   case 'marcas':
+      $controller = new AdministradorController();
+      $controller->ShowDashboardMarcas();
+      break;
+
+   case 'deleteMarca':
+      $controller = new AdministradorController;
+      $controller->DeleteMarca($params[1]);
+      break;
     
 
 
