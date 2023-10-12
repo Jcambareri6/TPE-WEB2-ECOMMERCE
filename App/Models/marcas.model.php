@@ -7,4 +7,9 @@ class MarcasModel extends DB{
         $marcas = $query->fetchAll(PDO::FETCH_OBJ);
         return $marcas;
     }
+
+    public function DeleteMarca($id){
+        $query = $this->connect()->prepare('DELETE FROM marcas WHERE MarcaID = ?');
+        $query->execute([$id]);
+     }
 }

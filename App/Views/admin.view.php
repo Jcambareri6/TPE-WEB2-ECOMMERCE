@@ -12,5 +12,8 @@ class adminView{
         require './Templates/error.phtml';
     }
 
+    function showDashboardMarcas(){
+        require './templates/MarcasAdminDashboard.phtml';
+    }
     
 }

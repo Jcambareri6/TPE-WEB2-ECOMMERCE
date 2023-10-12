@@ -9,7 +9,7 @@ class AdministradorController{
     public function __construct(){
         AuthHelper::verify();
        $this->View= new adminView();
-       $this->ModelAdmin= new adminModel();
+        $this->ModelAdmin= new adminModel();
        $this->modelMarcas = new MarcasModel();
 
     }
@@ -20,7 +20,6 @@ class AdministradorController{
 
     public function ShowDashboard() {
        $Items= $this->ModelAdmin->GetItems();
-        //    var_dump($Items);
         $this->View->ShowDashboard($Items,$this->getmarcas());  
     }
     public function DeleteItem($id){
