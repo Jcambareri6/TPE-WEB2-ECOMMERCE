@@ -2,10 +2,15 @@
 
 class adminModel extends DB{
    public function GetItems (){
-    $query= $this->connect()->prepare('SELECT productos.*, marcas.Nombre FROM productos INNER JOIN marcas ON productos.marcaID =marcas.MarcaID');
+    $query= $this->connect()->prepare('SELECT productos.*, marcas.Nombre FROM productos INNER JOIN marcas ON productos.IDmarca =marcas.MarcaID');
     $query->execute();
     $Items = $query->fetchAll(PDO::FETCH_OBJ);
     return $Items;
+   }
+   public function addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion){
+      $query = $this->connect()->prepare('INSERT INTO `productos`( `NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?)');
+      $query->execute([$ProductTittle,$description,$stock,$price,$marcaID,$condicion]);
+      return $this->connect()->lastInsertId();
    }
    public function DeleteItem($id){
     $query=$this->connect()->prepare('DELETE FROM productos WHERE ProductoID = ?');

@@ -43,9 +43,13 @@ class AdministradorController{
             $stock= $_POST['stock'];
             $price= $_POST['price'];
             $condicion= $_POST['condition'];
-               $marcaID=  $_POST['marcaID']; 
-            var_dump($ProductTittle,$description,$stock,$price,$condicion,$marcaID);
-           
+            $marcaID=  $_POST['marcaID']; 
+           $id= $this->ModelAdmin->addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+           if($id){
+            header('Location: ' . BASE_URL . '/dashboardAdmin');
+           }else{
+             $this->View->showFormAdd("error al insertar",$this->getMarcas());
+           }
         }
 
 

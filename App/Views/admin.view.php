@@ -6,6 +6,7 @@ class adminView{
     }
 
     function ShowFormAdd($error,$marcas){
+    
         require './Templates/formAdd.phtml';
     }
     function ShowError($error){
