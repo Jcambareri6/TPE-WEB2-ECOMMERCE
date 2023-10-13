@@ -16,5 +16,8 @@ class adminView{
     function showDashboardMarcas($error, $marcas){
         require './templates/MarcasAdminDashboard.phtml';
     }
+    function ShowModalEdit($error=null){
+        require './Templates/modalEditProduct.phtml';
+    }
     
 }

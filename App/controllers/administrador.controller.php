@@ -59,6 +59,26 @@ class AdministradorController{
 
 
     }
+    function ShowModalEdit($error){
+        $this->View->ShowModalEdit("campos vacios");
+    }
+    public function updateItem($id){
+        if(empty($_POST['nombreProducto'])||empty($_POST['descripcion'])|| empty($_POST['stock']) || empty($_POST['precio']) || empty($_POST['condicion'])|| empty($_POST['marca'])){
+          $this->View->ShowError("ERROR- CAMPOS VACIOS");
+        }else{
+            $ProductTittle= $_POST['nombreProducto'];
+            $description= $_POST['descripcion'];
+            $stock= $_POST['stock'];
+            $price= $_POST['precio'];
+            $condicion= $_POST['condicion'];
+            $marcaID=  $_POST['marca'];
+            var_dump($id,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+            $this->ModelAdmin->UpdateItem($id,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+            
+            header('Location: ' . BASE_URL . '/dashboardAdmin');
+        }
+
+    }
 
     public function ShowDashboardMarcas(){
         $this->View->ShowDashboardMarcas($error=null, $this->getMarcas());

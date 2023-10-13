@@ -1,0 +1,73 @@
+<div class="modal fade" id="mymodal">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+        <h2 class="bg-danger text-center p-2">editar Producto</h2>
+            <div class="container">
+            <form  id="form-edit-product" action="update/<?= $item->productId?>" method="POST">
+                
+               
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="stock" class="form-label">Stock</label>
+                        <input type="number" class="form-control" id="stock" name="stock">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio">
+                    </div>
+                    <div class="mb-3">
+                        <label for="condicion" class="form-label">Condición</label>
+                        <select class="form-select" id="condicion" name="condicion">
+                            <option value="Nuevo">Nuevo</option>
+                            <option value="Usado">Usado</option>
+                            <!-- Agrega más opciones según sea necesario -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select class="form-control" id="marca" name="marca">
+                        <option value="<?=$item->IDmarca?>"><?= $item->Nombre?></option>
+                        </select>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<script> //no funciona desde archivo .js cuando llamo a la ruta del script por eso mismo esta aca
+$('.edit-button').click(function() {
+    let productId = $(this).data('product-id');
+    let productNombre = $(this).data('product-nombre');
+    let productDescripcion = $(this).data('product-descripcion');
+    let productStock = $(this).data('product-stock');
+    let productPrecio = $(this).data('product-precio');
+    let productCondicion = $(this).data('product-condicion');
+    let productMarca = $(this).data('IDmarca');
+    let productMarcaNombre = $(this).data('product-MarcaNombre'); // Agregar el nombre de la marca
+
+    // Rellenar los campos del formulario dentro del modal con los datos del producto
+    $('#mymodal #nombreProducto').val(productNombre);
+    $('#mymodal #descripcion').val(productDescripcion);
+    $('#mymodal #stock').val(productStock);
+    $('#mymodal #precio').val(productPrecio);
+    $('#mymodal #condicion').val(productCondicion);
+    $('#mymodal [name="IDmarca"]').val(productMarca);
+    $('#mymodal [name="nombreMarca"]').val(productMarcaNombre);
+
+    $('#form-edit-product').attr('action', 'update/' + productId);
+});
+
+
+</script>

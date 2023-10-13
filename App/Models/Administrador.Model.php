@@ -7,6 +7,13 @@ class adminModel extends DB{
     $Items = $query->fetchAll(PDO::FETCH_OBJ);
     return $Items;
    }
+   public function getItem ($id){
+      $query= $this->connect()->prepare('SELECT * productos where id=?');
+      $query->execute([$id]);
+      $Item = $query->fetch(PDO::FETCH_OBJ);
+       return $Item;
+   }
+
    public function addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion){
       $query = $this->connect()->prepare('INSERT INTO `productos`( `NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?)');
       $query->execute([$ProductTittle,$description,$stock,$price,$marcaID,$condicion]);
@@ -16,8 +23,11 @@ class adminModel extends DB{
     $query=$this->connect()->prepare('DELETE FROM productos WHERE ProductoID = ?');
     $query->execute([$id]);
    }
-
-
+   function updateItem($id, $ProductTittle, $description, $stock, $price, $marcaID, $condicion) {
+      $query = $this->connect()->prepare('UPDATE productos SET NombreProducto=?, Descripcion=?, Precio=?, Stock=?, IDmarca=?, Condicion=? WHERE ProductoID=?');
+      $query->execute([$ProductTittle, $description, $price, $stock, $marcaID, $condicion, $id]);
+  }
+  
 
 
 }

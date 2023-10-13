@@ -52,7 +52,10 @@ switch ($params[0]) {
       $controller = new AdministradorController;
       $controller->DeleteMarca($params[1]);
       break;
-    
+    case 'update':
+    $controller = new AdministradorController;
+    $controller->UpdateItem($params[1]);
+   break;
 
 
    case 'delete':

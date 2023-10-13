@@ -1,25 +1,25 @@
 <?php require 'header.phtml'  ?>
 
-    <a class="btn btn-success" href="marcas">Marcas </a>
-    <div class="d-flex justify-content-end mb-3 ">
-            <a class="btn btn-success" href="ViewFormadd">Agregar Producto <i class="fa-solid fa-plus" style="color: #000000;"></i></a>
-    </div>
-    <table class="table">
+<a class="btn btn-success" href="marcas">Marcas </a>
+<div class="d-flex justify-content-end mb-3 ">
+    <a class="btn btn-success" href="ViewFormadd">Agregar Producto <i class="fa-solid fa-plus" style="color: #000000;"></i></a>
+</div>
+<table class="table">
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre del Producto</th>
-                <th>Descripcion</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Condicion</th>
-                <th>Marca</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($Items as $item): ?>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del Producto</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Condicion</th>
+            <th>Marca</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($Items as $item) : ?>
             <tr>
                 <td><?php echo $item->ProductoID; ?></td>
                 <td><?php echo $item->NombreProducto; ?></td>
@@ -29,20 +29,22 @@
                 <td><?php echo $item->Condicion; ?></td>
                 <td><?php echo $item->Nombre; ?></td>
                 <td>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a class="btn  btn-outline-danger me-md-2 p-2" type="button" href="delete/<?php echo $item->ProductoID ?>"><i class="fa-solid fa-trash"></i></a>
-                <a class="btn btn-outline-warning edit-button"><i class="fa-solid fa-pen-to-square"></i></a>
-                
-                </div> 
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn  btn-outline-danger me-md-2 p-2" type="button" href="delete/<?= $item->ProductoID ?>"><i class="fa-solid fa-trash"></i></a>
+                        <button class="btn btn-outline-warning edit-button" type="button" data-bs-toggle="modal" data-bs-target="#mymodal" data-product-id="<?= $item->ProductoID ?>" data-product-nombre="<?= $item->NombreProducto ?>" data-product-descripcion="<?= $item->Descripcion ?>" data-product-stock="<?= $item->Stock ?>" data-product-precio="<?= $item->Precio ?>" data-product-condicion="<?= $item->Condicion ?>" data-product-IDmarca="<?= $item->IDmarca ?>">
+                            <i class="fa-solid fa-pen-to-square" style="color: #e0b310;"></i>
+                        </button>
+
+                    </div>
                 </td>
-                
             </tr>
         <?php endforeach; ?>
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
- 
-
-
+</div>
+<?php require 'modalEditProduct.phtml' ?>
 <?php require 'footer.phtml' ?>
+
+
 </div>
