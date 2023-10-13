@@ -1,11 +1,10 @@
 <?php require './templates/header.phtml' ?>
+<div class="wrapper">
 <?php require './templates/banner.phtml' ?>
-
-
-<section id="Tienda" class="container text-center mt-2">
+<section id="Tienda  style="min-height: 82vh" class="container text-center mt-2">
     <div class="row">
-    
-        <?php foreach ($products as $product) : ?>
+        <?php if((count($products)>0)):?>
+         <?php foreach ($products as $product) : ?>
             <div class="col-md-4 mb-4">
                 <div class="card mx-auto" style="width: 18rem;">
                     <div class="card-body">
@@ -22,14 +21,14 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach ?>
+         <?php endforeach;?>
+         <?php else : ?>
+            <div class="alert alert-danger" role="alert">
+                <h1>no se encontraron los productos para esta marca</h1>
+            </div>
+            
+        <?php endif ?>
     </div>
 </section>
-
-
-
-
-
-
-
+</div>
 <?php require './templates/footer.phtml' ?>

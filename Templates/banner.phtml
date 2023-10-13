@@ -51,3 +51,14 @@
 	letter-spacing: 1px;
 }
 </style>
+<script> // pongo la funcion de javascript en cada componente ya que por archivo no toma la ruta y no funciona de manera adecuada
+	    function scrollToSection(sectionId) {
+        let section = document.getElementById('Tienda');
+        if (section) {
+			console.log("hola");
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+   
+   
+</script>

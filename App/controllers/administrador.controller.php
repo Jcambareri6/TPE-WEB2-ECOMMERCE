@@ -72,7 +72,7 @@ class AdministradorController{
             $price= $_POST['precio'];
             $condicion= $_POST['condicion'];
             $marcaID=  $_POST['marca'];
-            var_dump($id,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+           
             $this->ModelAdmin->UpdateItem($id,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
             
             header('Location: ' . BASE_URL . '/dashboardAdmin');

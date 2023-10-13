@@ -4,14 +4,12 @@
     box-sizing: border-box;
     font-family: 'montserrat';
 }
-html{
-     scroll-behavior:smooth; 
+
+.wrapper {
+    flex-grow: 1; /* Hace que el contenido principal crezca para ocupar el espacio restante */
 }
 
-.celulares {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 25px;
-}
+
+
 
 
