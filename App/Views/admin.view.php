@@ -13,7 +13,7 @@ class adminView{
         require './Templates/error.phtml';
     }
 
-    function showDashboardMarcas(){
+    function showDashboardMarcas($error, $marcas){
         require './templates/MarcasAdminDashboard.phtml';
     }
     

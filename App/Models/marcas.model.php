@@ -1,5 +1,5 @@
 <?php
-require_once'./App/Models/model.php';
+require_once './App/Models/model.php';
 class MarcasModel extends DB{
     public function getMarcas (){
         $query = $this->connect()->prepare('SELECT * FROM marcas');
