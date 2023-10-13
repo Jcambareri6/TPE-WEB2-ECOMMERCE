@@ -5,3 +5,4 @@
             section.scrollIntoView({ behavior: 'smooth' });
         }
     }
+   
