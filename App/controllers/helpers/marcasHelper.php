@@ -7,4 +7,10 @@ class MarcasHelper {
         $marcas = $marcasModel->getMarcas();
         return $marcas;
     }
+    public static function estaEnUso($id) {
+        $marcasModel = new MarcasModel();
+        return $marcasModel->isMarcaInUse($id);
+        
+    }
+
 }

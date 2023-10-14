@@ -28,10 +28,15 @@ class AdministradorController{
         header('Location: ' . BASE_URL . '/dashboardAdmin');
         
     }
-
+     public function MarcaEnuso($id){
+        return $this->modelMarcas->isMarcaInUse($id);
+     }
     public function DeleteMarca($id){
-        $this->modelMarcas->DeleteMarca($id);
-        header('Location: ' . BASE_URL . '/marcas');
+
+            $this->modelMarcas->deleteMarca($id);
+            header('Location: ' . BASE_URL . '/marcas');
+    
+      
     }
 
     public function showFormAdd(){

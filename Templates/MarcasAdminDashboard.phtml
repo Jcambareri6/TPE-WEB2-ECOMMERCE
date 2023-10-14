@@ -1,4 +1,5 @@
 <?php require 'header.phtml' ?>
+<?php require_once './App/controllers/helpers/marcasHelper.php' ?>
 
 <div class="d-flex justify-content-end mb-3 ">
             <a class="btn btn-success" href="viewFormAddMarca">Agregar Marca <i class="fa-solid fa-plus" style="color: #000000;"></i></a>
@@ -18,7 +19,15 @@
             <td><?php echo $marca->Nombre; ?></td>
             <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a class="btn  btn-outline-danger me-md-2 p-2" type="button" href=" deleteMarca/<?php echo $marca->MarcaID ?>"><i class="fa-solid fa-trash"></i></a>
+
+                <?php if (MarcasHelper::estaEnUso($marca->MarcaID)): ?>
+                        <!-- La marca está en uso, muestra un mensaje y deshabilita la opción de eliminar -->
+                        <span class="text-danger">Esta marca está en uso en productos.</span>
+                    <?php else: ?>
+                        <!-- La marca no está en uso, permite eliminarla -->
+                        <a class="btn btn-outline-danger me-md-2 p-2" type="button" href="deleteMarca/<?php echo $marca->MarcaID ?>"><i class="fa-solid fa-trash"></i></a>
+                    <?php endif; ?>
+
                 <a class="btn btn-outline-warning" type="button"><i class="fa-solid fa-pen-to-square"></i></a>
             </div> 
             </td>
