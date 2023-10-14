@@ -26,7 +26,12 @@ class adminModel extends DB{
    function updateItem($id, $ProductTittle, $description, $stock, $price, $marcaID, $condicion) {
       $query = $this->connect()->prepare('UPDATE productos SET NombreProducto=?, Descripcion=?, Precio=?, Stock=?, IDmarca=?, Condicion=? WHERE ProductoID=?');
       $query->execute([$ProductTittle, $description, $price, $stock, $marcaID, $condicion, $id]);
-  }
+   }
+
+   public function addMarca($marcaTitulo){
+      $query = $this->connect()->prepare('INSERT INTO marcas (Nombre) VALUES (?)');
+      $query->execute([$marcaTitulo]);
+   }
   
 
 

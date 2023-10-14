@@ -47,6 +47,14 @@ switch ($params[0]) {
       $controller = new AdministradorController();
       $controller->ShowDashboardMarcas();
       break;
+   case 'viewFormAddMarca':
+      $controller = new AdministradorController();
+      $controller->showFormAddMarcas();
+      break;
+   case 'addMarca':
+      $controller = new AdministradorController();
+      $controller->insertMarca();
+      break;
 
    case 'deleteMarca':
       $controller = new AdministradorController;

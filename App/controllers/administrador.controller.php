@@ -38,10 +38,8 @@ class AdministradorController{
         $this->View->showFormAdd($error=null,$this->getMarcas());
     }
     public function AddProduct(){
- 
-      
         if(empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
-            $this->View->showFormAdd("no se completaron los datos",$this->getMarcas());
+            $this->View->showFormAdd("No se completaron los datos",$this->getMarcas());
         }else{
             $ProductTittle= $_POST['tittle'];
             $description= $_POST['description'];
@@ -53,7 +51,7 @@ class AdministradorController{
            if($id){
             header('Location: ' . BASE_URL . '/dashboardAdmin');
            }else{
-             $this->View->showFormAdd("error al insertar",$this->getMarcas());
+             $this->View->showFormAdd("Error al insertar",$this->getMarcas());
            }
         }
 
@@ -82,6 +80,24 @@ class AdministradorController{
 
     public function ShowDashboardMarcas(){
         $this->View->ShowDashboardMarcas($error=null, $this->getMarcas());
+    }
+
+    public function showFormAddMarcas(){
+        $this->View->ShowFormAddMarcas($error=null,$this->getMarcas());
+    }
+
+    public function insertMarca(){
+        if (empty($_POST['tittleMarca'])){
+            $this->View->ShowFormAddMarcas("ERROR - CAMPO VACIO", $this->getMarcas());
+        }else{
+            $marcaTitulo = $_POST['tittleMarca'];
+            $id= $this->ModelAdmin->addMarca($marcaTitulo);
+            if ($id){
+                header('Location: ' . BASE_URL . '/marcas');
+            }else{
+                $this->View->showFormAddMarcas("Error al insertar", $this->getMarcas());
+            }
+        }
     }
     
 }

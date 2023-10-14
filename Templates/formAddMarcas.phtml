@@ -1,0 +1,18 @@
+<?php include 'header.phtml' ?>
+
+
+<div class="container mt-5">
+        <h2 class="p-1">Agregar Marca</h2>
+        <form action="addMarca" method="POST">
+            <?php if ($error) : ?>
+            <div class='alert alert-danger' role='alert'>
+                <?= $error ?>
+            </div> 
+            <?php endif ?>
+            <div class="form-group ">
+                <label for="nombre">Nombre de la marca:</label>
+                <input type="text" class="form-control"  name='tittleMarca' id="nombreMarca" placeholder="Ingrese el nombre de la marca">
+            </div>
+            <button  type="submit" class="btn btn-primary mt-2">Agregar Marca</button>
+        </form>
+</div>

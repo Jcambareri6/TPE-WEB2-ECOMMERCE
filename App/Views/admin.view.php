@@ -20,4 +20,7 @@ class adminView{
         require './Templates/modalEditProduct.phtml';
     }
     
+    function ShowFormAddMarcas($error, $marcas) {
+        require './templates/formAddMarcas.phtml';
+    }
 }
