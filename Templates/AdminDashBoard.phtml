@@ -19,7 +19,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($Items as $item) : ?>
+        <?php
+        foreach ($Items as $item) : ?>
             <tr>
                 <td><?php echo $item->ProductoID; ?></td>
                 <td><?php echo $item->NombreProducto; ?></td>
@@ -44,6 +45,7 @@
 
 </div>
 <?php require 'modalEditProduct.phtml' ?>
+<?php require 'footer.phtml' ?>
 
 
 
