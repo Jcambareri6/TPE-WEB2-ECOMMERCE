@@ -31,6 +31,7 @@ class adminModel extends DB{
    public function addMarca($marcaTitulo){
       $query = $this->connect()->prepare('INSERT INTO marcas (Nombre) VALUES (?)');
       $query->execute([$marcaTitulo]);
+      return $this->connect()->lastInsertId();
    }
   
 
