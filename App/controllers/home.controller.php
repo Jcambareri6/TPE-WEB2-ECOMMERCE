@@ -1,6 +1,6 @@
 <?php
 require_once './app/views/home.view.php';
-require_once './app/models/model.home.php';
+
 require_once './app/models/marcas.model.php';
 require_once './App/controllers/helpers/marcasHelper.php';
 
@@ -14,7 +14,7 @@ class HomeController{
     function __construct(){
         
         $this->view = new HomeView();
-        $this->model = new homeModel();
+        $this->model = new adminModel();
         $this->modelMarcas = new MarcasModel();
         $this->marcas= MarcasHelper::cargarMarcas();
     }

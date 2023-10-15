@@ -15,7 +15,7 @@ class adminModel extends DB{
    }
 
    public function addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion){
-      $query = $this->connect()->prepare('INSERT INTO `productos`( `NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?)');
+      $query = $this->connect()->prepare('INSERT INTO `productos`(`Imagen` ,`NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?)');
       $query->execute([$ProductTittle,$description,$stock,$price,$marcaID,$condicion]);
       return $this->connect()->lastInsertId();
    }
@@ -33,7 +33,12 @@ class adminModel extends DB{
       $query->execute([$marcaTitulo]);
       return $this->connect()->lastInsertId();
    }
-  
+   public function getItemsPorMarca($id){
+      $query = $this->connect()->prepare('SELECT productos.*, marcas.Nombre FROM productos INNER JOIN marcas on productos.IDmarca = marcas.MarcaID WHERE IDmarca = ?');
+      $query -> execute([$id]);
+      $items = $query->fetchAll(PDO::FETCH_OBJ);
+      return $items;
+     }
 
 
 }

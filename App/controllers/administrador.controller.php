@@ -28,24 +28,24 @@ class AdministradorController{
         header('Location: ' . BASE_URL . '/dashboardAdmin');
         
     }
-     public function MarcaEnuso($id){
-        return $this->modelMarcas->isMarcaInUse($id);
-     }
+   
     public function DeleteMarca($id){
 
             $this->modelMarcas->deleteMarca($id);
             header('Location: ' . BASE_URL . '/marcas');
     
-      
     }
 
     public function showFormAdd(){
         $this->View->showFormAdd($error=null,$this->marcas);
     }
     public function AddProduct(){
-        if(empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
+        if( empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
             $this->View->showFormAdd("No se completaron los datos",$this->marcas);
         }else{
+        
+           
+    
             $ProductTittle= $_POST['tittle'];
             $description= $_POST['description'];
             $stock= $_POST['stock'];
@@ -54,7 +54,8 @@ class AdministradorController{
             $marcaID=  $_POST['marcaID']; 
            $id= $this->ModelAdmin->addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion);
            if($id){
-            header('Location: ' . BASE_URL . '/dashboardAdmin');
+              
+                 header('Location: ' . BASE_URL . '/dashboardAdmin');
            }else{
              $this->View->showFormAdd("Error al insertar",$this->marcas);
            }

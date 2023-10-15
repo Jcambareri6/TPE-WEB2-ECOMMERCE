@@ -52,8 +52,11 @@
 }
 </style>
 <script> // pongo la funcion de javascript en cada componente ya que por archivo no toma la ruta y no funciona de manera adecuada
-	    function scrollToSection(sectionId) {
-        let section = document.getElementById('Tienda');
+	    console.log('hola')
+		function scrollToSection(sectionId) {
+			
+        	let section = document.getElementById('Tienda')
+			console.log(section)
         if (section) {
 			console.log("hola");
             section.scrollIntoView({ behavior: 'smooth' });
