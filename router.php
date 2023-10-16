@@ -64,7 +64,13 @@ switch ($params[0]) {
     $controller = new AdministradorController;
     $controller->UpdateItem($params[1]);
    break;
+    case 'showItem':
+      $controller = new HomeController();
+      var_dump($params[1]);
+      $controller->showItem($params[1]);
+      break;
 
+    
 
    case 'delete':
       $controller = new AdministradorController;

@@ -5,4 +5,7 @@ class HomeView {
         
         require './templates/home.phtml';
     }
+    public function showItem($Item){
+        require './Templates/infoProducto.phtml';
+    }
 }

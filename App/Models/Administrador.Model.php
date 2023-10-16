@@ -8,7 +8,7 @@ class adminModel extends DB{
     return $Items;
    }
    public function getItem ($id){
-      $query= $this->connect()->prepare('SELECT * productos where id=?');
+      $query= $this->connect()->prepare('SELECT * FROM productos WHERE ProductoID=?');
       $query->execute([$id]);
       $Item = $query->fetch(PDO::FETCH_OBJ);
        return $Item;

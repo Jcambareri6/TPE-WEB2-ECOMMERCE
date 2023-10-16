@@ -8,15 +8,18 @@ require_once './App/controllers/helpers/marcasHelper.php';
 class HomeController{
     private $view;
     private $model;
-    private $modelMarcas;
+
     private $marcas;
 
     function __construct(){
         
         $this->view = new HomeView();
         $this->model = new adminModel();
-        $this->modelMarcas = new MarcasModel();
         $this->marcas= MarcasHelper::cargarMarcas();
+    }
+    public function showItem($id){
+       $Item= $this->model->getItem($id);
+       $this->view->showItem($Item);
     }
   
 
