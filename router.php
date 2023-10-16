@@ -6,8 +6,8 @@ include_once './App/controllers/administrador.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 $action = 'home'; // accion por defecto
-if (!empty( $_GET['action'])) {
-    $action = $_GET['action'];
+if (!empty($_GET['action'])) {
+   $action = $_GET['action'];
 }
 
 $params = explode('/', $action);
@@ -37,11 +37,11 @@ switch ($params[0]) {
       $controller->AddProduct();
       break;
 
-      case 'productosMarca': 
-    
+   case 'productosMarca':
+
       $controller = new HomeController();
       $controller->showProductosPorMarca($params[1]);
-      
+
       break;
    case 'marcas':
       $controller = new AdministradorController();
@@ -60,21 +60,18 @@ switch ($params[0]) {
       $controller = new AdministradorController;
       $controller->DeleteMarca($params[1]);
       break;
-    case 'update':
-    $controller = new AdministradorController;
-    $controller->UpdateItem($params[1]);
-   break;
-    case 'showItem':
+   case 'update':
+      $controller = new AdministradorController;
+      $controller->UpdateItem($params[1]);
+      break;
+   case 'showItem':
       $controller = new HomeController();
-      var_dump($params[1]);
       $controller->showItem($params[1]);
       break;
 
-    
-
    case 'delete':
       $controller = new AdministradorController;
-      var_dump($params[1]);
+     
       $controller->DeleteItem($params[1]);
       break;
    case 'logout':

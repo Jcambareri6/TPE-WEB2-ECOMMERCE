@@ -8,13 +8,8 @@
             <div class="col-md-4 mb-4">
                 <div class="card mx-auto" style="width: 18rem;">
                     <div class="card-body">
-                    <div>
-                   
-                    <img src="data:image/jpeg;base64,<?php base64_encode($product->Imagen) ?>">
-
-                    </div>
-
-                        <h5 class="card-title"><?= $product->NombreProducto ?></h5>
+                         <div><img src="<?= $product->Imagen ?>" class="card-img-top"  alt="" srcset=""></div>
+                        <h5 class="card-title mt-2"><?= $product->NombreProducto ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?= $product->Nombre?></h6>
                         <p class="card-text"><?= $product->Descripcion ?></p>
                     </div>

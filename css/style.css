@@ -3,12 +3,68 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'montserrat';
+    font-size: 18px;
 }
 
 .wrapper {
     flex-grow: 1; /* Hace que el contenido principal crezca para ocupar el espacio restante */
 }
 
+/* Estilos para la página de producto */
+.product-container {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.product-details h4 {
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+}
+
+.product-details p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Estilos para los botones */
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid #3498db;
+    color: #3498db;
+}
+
+.btn-primary, .btn-outline-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    background-color: #2e86de;
+    border: 1px solid #2e86de;
+    color: #fff;
+}
 
 
 

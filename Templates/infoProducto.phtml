@@ -1,60 +1,32 @@
 <?php require 'header.phtml' ?>
-<div class="row">
 
-                <div class="col-md-5 order-md-1">
-                    <!--Carrusel-->
-                    <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <!--Imagenes-->
-                            <div class="carousel-item">
-                                <img src="images/productos/2/principal.jpg" class="d-block w-100">
-                            </div>
 
-                                                            <div class="carousel-item">
-                                    <img src="images/productos/2/3.jpg" class="d-block w-100">
-                                </div>
-                                                            <div class="carousel-item active">
-                                    <img src="images/productos/2/2.jpg" class="d-block w-100">
-                                </div>
-                            
-                            <!--Imagenes-->
-                        </div>
 
-                        <!--Controles-->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselImages" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                        <!--Controles carrusel-->
-                    </div>
-                    <!--Carrusel-->
-                </div>
-             
-                <div class="col-md-7 order-md-2">
-                    <h2><?= $Item->NombreProducto ?></h2>
-                    <p class="lead"><?=$Item->Precio ?></b>
-                      
 
-                    <div class="col-3 my-3">
-                        <input class="form-control" id="cantidad" name="cantidad" type="number" min="1" max="10" value="1">
-                    </div>
-                    <div>
-                        <ul class="navbar-nav">
-                            <li><p><?= $Item->Descripcion ?></p></li>
-                            <li><p><?= $Item->Nombre ?></p></li>
-                            <li><?= $Item->Condicion?></li>
-                        </ul>
+<div class="row product-container">
+    <div class="col-md-5 order-md-1">
+     <img class="card-img-top"  src="<?= $Item->Imagen ?>" alt="" srcset="">
+    </div>
 
-                    </div>
+    <div class="col-md-7 order-md-2">
+        <h2 class="product-title"><?= $Item->NombreProducto ?></h2>
+        <p class="lead product-price"><?= $Item->Precio ?></p>
+        <div class="col-3 my-3">
+            <input class="form-control" id="cantidad" name="cantidad" type="number" min="1" max="10" value="1">
+        </div>
+        <div class="product-details">
+            <h4>Descripción:</h4>
+            <p><?= $Item->Descripcion ?></p>
+            <h4>Marca:</h4>
+            <p><?= $Item->Nombre ?></p>
+            <h4>Condición:</h4>
+            <p><?= $Item->Condicion ?></p>
+        </div>
+        <div class="d-grid gap-3 col-7">
+            <button class="btn btn-primary" type="button">Comprar ahora</button>
+            <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+        </div>
+    </div>
+</div>
 
-                    <div class="d-grid gap-3 col-7">
-                        <button class="btn btn-primary" type="button">Comprar ahora</button>
-                        <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-<?php require 'footer.phtml' ?>
+<?php require 'footer.phtml'; ?>

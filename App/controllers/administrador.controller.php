@@ -40,29 +40,31 @@ class AdministradorController{
         $this->View->showFormAdd($error=null,$this->marcas);
     }
     public function AddProduct(){
-        if( empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
+        $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+        if(!in_array($_FILES['imagen']['type'], $allowedTypes) || empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
             $this->View->showFormAdd("No se completaron los datos",$this->marcas);
         }else{
         
            
-    
+            $imagen= $_FILES['imagen']['tmp_name'];
             $ProductTittle= $_POST['tittle'];
             $description= $_POST['description'];
             $stock= $_POST['stock'];
             $price= $_POST['price'];
             $condicion= $_POST['condition'];
             $marcaID=  $_POST['marcaID']; 
-           $id= $this->ModelAdmin->addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+           // var_dump($imagen,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
+           $id= $this->ModelAdmin->addItem($imagen,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
            if($id){
-              
-                 header('Location: ' . BASE_URL . '/dashboardAdmin');
+               header('Location: ' . BASE_URL . '/dashboardAdmin');
            }else{
              $this->View->showFormAdd("Error al insertar",$this->marcas);
-           }
+            }
         }
 
 
     }
+
     function ShowModalEdit($error){
         $this->View->ShowModalEdit("campos vacios");
     }

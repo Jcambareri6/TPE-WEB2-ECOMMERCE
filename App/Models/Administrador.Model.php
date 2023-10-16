@@ -13,10 +13,21 @@ class adminModel extends DB{
       $Item = $query->fetch(PDO::FETCH_OBJ);
        return $Item;
    }
+   private function uploadImage($imagen){
+      $target = './images/' . uniqid() . '.jpg';
+      move_uploaded_file($imagen, $target);
+      return $target;
+  }
 
-   public function addItem($ProductTittle,$description,$stock,$price,$marcaID,$condicion){
-      $query = $this->connect()->prepare('INSERT INTO `productos`(`Imagen` ,`NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?)');
-      $query->execute([$ProductTittle,$description,$stock,$price,$marcaID,$condicion]);
+
+   public function addItem($imagen=null,$ProductTittle,$description,$stock,$price,$marcaID,$condicion){
+      $pathImg = null;
+      if ($imagen){
+         $pathImg = $this->uploadImage($imagen);
+      }
+      
+      $query = $this->connect()->prepare('INSERT INTO `productos`(`Imagen` ,`NombreProducto`, `Descripcion`, `Precio`, `Stock`, `IDmarca`, `Condicion`) VALUES (?,?,?,?,?,?,?)');
+      $query->execute([$pathImg,$ProductTittle,$description,$stock,$price,$marcaID,$condicion]);
       return $this->connect()->lastInsertId();
    }
    public function DeleteItem($id){
