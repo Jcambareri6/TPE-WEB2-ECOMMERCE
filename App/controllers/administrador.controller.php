@@ -43,9 +43,6 @@ class AdministradorController{
         if( empty($_POST['tittle'])||empty($_POST['description'])|| empty($_POST['stock']) || empty($_POST['price']) || empty($_POST['condition'])|| empty($_POST['marcaID'])){
             $this->View->showFormAdd("No se completaron los datos",$this->marcas);
         }else{
-        
-           
-    
             $ProductTittle= $_POST['tittle'];
             $description= $_POST['description'];
             $stock= $_POST['stock'];
@@ -103,6 +100,16 @@ class AdministradorController{
             }else{
                 $this->View->showFormAddMarcas("Error al insertar", $this->marcas);
             }
+        }
+    }
+
+    public function updateMarca($id){
+        if (empty($_POST['nombreMarca'])){
+            $this->View->ShowError("ERROR - CAMPO VACIO");
+        }else{
+            $MarcaTitulo = $_POST['nombreMarca'];
+            $this->ModelAdmin->UpdateMarca($id,$MarcaTitulo);
+            header ('Location: ' . BASE_URL . '/marcas');
         }
     }
     

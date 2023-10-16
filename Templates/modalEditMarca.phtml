@@ -1,0 +1,16 @@
+<div class="modal fade" id="modalMarca">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+        <h2 class="bg-danger text-center p-2">Editar marca</h2>
+            <div class="container">
+            <form  id="form-edit-product" action="update/<?= $marca->marcaId?>" method="POST">
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre de la marca</label>
+                        <input type="text" class="form-control" id="nombreMarca" name="nombreMarca">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

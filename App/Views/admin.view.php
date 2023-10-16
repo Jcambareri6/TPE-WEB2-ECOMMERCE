@@ -23,4 +23,8 @@ class adminView{
     function ShowFormAddMarcas($error, $marcas) {
         require './templates/formAddMarcas.phtml';
     }
+
+    function ShowModalEditMarcas($error=null){
+        require './templates/modalEditMarca.phtml';
+    }
 }
