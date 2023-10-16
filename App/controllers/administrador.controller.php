@@ -56,19 +56,19 @@ class AdministradorController{
            // var_dump($imagen,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
            $id= $this->ModelAdmin->addItem($imagen,$ProductTittle,$description,$stock,$price,$marcaID,$condicion);
            if($id){
-               header('Location: ' . BASE_URL . '/dashboardAdmin');
+             header('Location: ' . BASE_URL . '/dashboardAdmin');
            }else{
              $this->View->showFormAdd("Error al insertar",$this->marcas);
-            }
+          }
         }
 
 
     }
-
     function ShowModalEdit($error){
         $this->View->ShowModalEdit("campos vacios");
     }
-    public function updateItem($id){
+
+     function updateItem($id){
         if(empty($_POST['nombreProducto'])||empty($_POST['descripcion'])|| empty($_POST['stock']) || empty($_POST['precio']) || empty($_POST['condicion'])|| empty($_POST['marca'])){
           $this->View->ShowError("ERROR- CAMPOS VACIOS");
         }else{
@@ -86,15 +86,15 @@ class AdministradorController{
 
     }
 
-    public function ShowDashboardMarcas(){
+     function ShowDashboardMarcas(){
         $this->View->ShowDashboardMarcas($error=null, $this->marcas);
     }
 
-    public function showFormAddMarcas(){
+     function showFormAddMarcas(){
         $this->View->ShowFormAddMarcas($error=null,$this->marcas);
     }
 
-    public function insertMarca(){
+     function insertMarca(){
         if (empty($_POST['tittleMarca'])){
             $this->View->ShowFormAddMarcas("ERROR - CAMPO VACIO",$this->marcas);
         }else{
@@ -106,6 +106,5 @@ class AdministradorController{
                 $this->View->showFormAddMarcas("Error al insertar", $this->marcas);
             }
         }
-    }
-    
+    }    
 }
