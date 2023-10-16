@@ -64,6 +64,10 @@ switch ($params[0]) {
       $controller = new AdministradorController;
       $controller->UpdateItem($params[1]);
       break;
+      case 'UpdateMarca':
+         $controller = new AdministradorController;
+         $controller->updateMarca($params[1]);
+         break;
    case 'showItem':
       $controller = new HomeController();
       $controller->showItem($params[1]);

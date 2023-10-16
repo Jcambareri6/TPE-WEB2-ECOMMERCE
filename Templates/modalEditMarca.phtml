@@ -1,0 +1,27 @@
+<div class="modal fade" id="modalMarcas">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+        <h2 class="bg-danger text-center p-2">Editar marca</h2>
+            <div class="container">
+            <form  id="form-edit-marca" action="" method="POST">
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre de la marca</label>
+                        <input type="text" class="form-control" id="nombreProducto" name="nombreMarca">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script> //no funciona desde archivo .js cuando llamo a la ruta del script por eso mismo esta aca
+$('.edit-button').click(function() {
+    let productId = $(this).data('product-id');
+    let productNombre = $(this).data('product-nombre');
+    $('#modalMarcas #nombreProducto').val(productNombre);
+
+    $('#form-edit-marca').attr('action', 'UpdateMarca/' + productId);
+});
+
+
+</script>

@@ -99,12 +99,23 @@ class AdministradorController{
             $this->View->ShowFormAddMarcas("ERROR - CAMPO VACIO",$this->marcas);
         }else{
             $marcaTitulo = $_POST['tittleMarca'];
-            $id= $this->ModelAdmin->addMarca($marcaTitulo);
+            $id= $this->modelMarcas->addMarca($marcaTitulo);
             if ($id){
                 header('Location: ' . BASE_URL . '/marcas');
             }else{
                 $this->View->showFormAddMarcas("Error al insertar", $this->marcas);
             }
         }
-    }    
+    }
+
+    public function updateMarca($id){
+        if (empty($_POST['nombreMarca'])){
+            $this->View->ShowError("ERROR - CAMPO VACIO");
+        }else{
+            $MarcaTitulo = $_POST['nombreMarca'];
+            $this->modelMarcas->UpdateMarca($MarcaTitulo,$id);
+            header ('Location: ' . BASE_URL . '/marcas');
+        }
+    }
+    
 }

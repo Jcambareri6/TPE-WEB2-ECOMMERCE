@@ -2,18 +2,20 @@
 require_once './app/views/home.view.php';
 
 require_once './app/models/marcas.model.php';
+
 require_once './App/controllers/helpers/marcasHelper.php';
 
 
 class HomeController{
     private $view;
     private $model;
-
+    private $modelMarcas;
     private $marcas;
 
     function __construct(){
         
         $this->view = new HomeView();
+        $this->modelMarcas= new MarcasModel();
         $this->model = new adminModel();
         $this->marcas= MarcasHelper::cargarMarcas();
     }
@@ -31,7 +33,7 @@ class HomeController{
     }
 
     public function showProductosPorMarca($id){
-        $productsMarca = $this->model->getItemsPorMarca($id);
+        $productsMarca = $this->modelMarcas->getItemsPorMarca($id);
        
          $this->view->showHome($productsMarca,  $this->marcas);
        
